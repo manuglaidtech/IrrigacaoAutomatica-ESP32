@@ -2,12 +2,12 @@
 
 [![Simulador Wokwi](https://img.shields.io/badge/Simular-Wokwi-blue)](https://wokwi.com/projects/431979887661363201)
 
-Projeto de IoT para controle de irrigação baseado na umidade do solo, desenvolvido para [Nome da Disciplina] - [Nome da Faculdade].
+Projeto de IoT para controle de irrigação baseado na umidade do solo, desenvolvido para Objetos Inteligentes Conectados - Universidade Presbiteriana Mackenzie.
 
 ## 📸 Demonstração
 | Solo Úmido | Solo Seco |
 |------------|-----------|
-| ![Solo Úmido](imagens/imagem_Sab_umido.jpg) | ![Solo Seco](imagens/imagem_Saba_Seno.jpg) |
+| ![Solo Úmido](imagens/imagem_sol_úmido.jpg) | ![Solo Seco](imagens/imagem_Solo_Seco.jpg) |
 
 ## 🔌 Circuito
 ```plaintext
