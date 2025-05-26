@@ -1,91 +1,88 @@
- Sistema Inteligente de Irrigação com ESP32 e MQTT
+# 🌱 Sistema Inteligente de Irrigação com ESP32 e MQTT
+
 Este projeto propõe um sistema de irrigação automatizado e sustentável que utiliza a plataforma ESP32, sensores de umidade do solo e comunicação via protocolo MQTT. A proposta visa combater o desperdício de água na agricultura, alinhando-se ao Objetivo de Desenvolvimento Sustentável 6 (ODS 6) da ONU.
 
-📌 Objetivo
+## 🎯 Objetivo
+
 Desenvolver uma solução de irrigação inteligente que:
 
-Monitore a umidade do solo em tempo real;
+- Monitore a umidade do solo em tempo real;
+- Acione automaticamente a irrigação quando necessário;
+- Permita o monitoramento remoto via MQTT;
+- Seja validada por meio de simulação no ambiente Wokwi.
 
-Acione automaticamente a irrigação quando necessário;
+---
 
-Permita o monitoramento remoto via MQTT;
+## 🧰 Componentes Utilizados
 
-Seja validada por meio de simulação no ambiente Wokwi.
+| Componente         | Função                            | Pino no ESP32 |
+|--------------------|-----------------------------------|----------------|
+| ESP32              | Microcontrolador principal        | —              |
+| Sensor de Umidade  | Detecta umidade do solo           | GPIO 34        |
+| Módulo Relé        | Aciona bomba de irrigação         | GPIO 26        |
+| Buzzer             | Emite alertas sonoros             | GPIO 27        |
+| LED                | Indica o status do sistema        | GPIO 25        |
+| Potenciômetro      | Simula e calibra umidade          | GPIO 32        |
+| Resistor 220Ω      | Protege o LED                     | —              |
+| Jumpers/Protoboard | Conexões                          | —              |
 
-Componentes Utilizados
-Componente	Função	Pino no ESP32
-ESP32	Microcontrolador principal	—
-Sensor de Umidade	Detecta umidade do solo	GPIO 34
-Módulo Relé	Aciona bomba de irrigação	GPIO 26
-Buzzer	Emite alertas sonoros	GPIO 27
-LED	Indica o status do sistema	GPIO 25
-Potenciômetro	Simula e calibra umidade	GPIO 32
-Resistor 220Ω	Protege o LED	—
-Jumpers/Protoboard	Conexões	—
+---
 
-Ferramentas e Tecnologias
-ESP32 (Wi-Fi + Bluetooth)
+## 🛠️ Ferramentas e Tecnologias
 
-Wokwi (simulação virtual)
+- **ESP32** (Wi-Fi + Bluetooth)
+- **Wokwi** (simulação virtual)
+- **Fritzing** (modelagem visual do circuito)
+- **Arduino IDE** (linguagem C++)
+- **Bibliotecas**: `WiFi.h`, `PubSubClient.h`
 
-Fritzing (modelagem visual do circuito)
+---
 
-Arduino IDE (linguagem C++)
+## ⚙️ Funcionamento do Sistema
 
-Bibliotecas: WiFi.h, PubSubClient.h
+1. O ESP32 conecta-se à rede Wi-Fi e ao broker MQTT.
+2. O potenciômetro simula a umidade do solo.
+3. O sistema compara a leitura com um limite pré-definido.
+4. Se a umidade estiver baixa:
+   - Aciona o relé (liga bomba de irrigação);
+   - Ativa LED e buzzer;
+   - Publica os dados no broker MQTT.
+5. Caso a umidade esteja adequada:
+   - Relé é desativado;
+   - Sistema permanece em espera.
+6. O ciclo reinicia após um intervalo, garantindo monitoramento contínuo.
 
-Funcionamento
-O ESP32 conecta-se à rede Wi-Fi e ao broker MQTT.
+---
 
-O potenciômetro simula a umidade do solo.
+## 🔄 Fluxograma
 
-O sistema compara a leitura com um limite pré-definido.
+> *(Insira a imagem do fluxograma aqui quando disponível)*
 
-Se a umidade estiver baixa:
+---
 
-O relé é acionado e liga a bomba de irrigação.
+## 📸 Imagens da Simulação
 
-LED e buzzer indicam o status do sistema.
+### Solo Seco
+![Solo seco](../Imagens/solo_seco.jpg)
 
-Os dados são enviados ao broker MQTT.
+### Solo Úmido
+![Solo úmido](../Imagens/solo_umido.jpg)
 
-O ciclo se repete periodicamente para monitoramento contínuo.
+---
 
-Fluxo de Funcionamento
-mermaid
-Copiar
-Editar
-graph TD
-A[Início] --> B[Conectar Wi-Fi e MQTT]
-B --> C[Verificar Umidade do Solo]
-C -->|Abaixo do Limite| D[Ativar Relé + LED + Buzzer]
-C -->|Acima do Limite| E[Manter Sistema Inativo]
-D --> F[Enviar Dados via MQTT]
-E --> F
-F --> G[Esperar e Repetir Ciclo]
-🔧 Instruções de Simulação no Wokwi
-Acesse: https://wokwi.com/
+## ▶️ Vídeo Demonstração
 
-Importe ou recrie o circuito baseado na montagem apresentada no artigo.
+[🔗 Clique aqui para assistir no YouTube](https://www.youtube.com/SEU-LINK-AQUI)
 
-Faça upload do código na IDE online.
+---
 
-Acompanhe o comportamento dos sensores e atuadores em tempo real.
+## 🌐 Referências
 
-📚 Referências
-ONU ODS 6: https://brasil.un.org/pt-br/sdgs
+- ONU ODS 6: https://brasil.un.org/pt-br/sdgs
+- Espressif: https://www.espressif.com
+- Wokwi: https://wokwi.com/
+- Fritzing: https://fritzing.org
 
-Espressif (ESP32): https://www.espressif.com
 
-Wokwi: https://wokwi.com/
 
-Fritzing: https://fritzing.org
 
-Futuras Melhorias
-Inclusão de sensores de temperatura e luminosidade;
-
-Integração com nuvem (dashboard);
-
-Criação de aplicativo móvel para controle remoto;
-
-Sistema de alertas automatizados por notificação.
