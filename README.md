@@ -4,11 +4,6 @@
 
 Projeto de IoT para controle de irrigação baseado na umidade do solo, desenvolvido para Objetos Inteligentes Conectados - Universidade Presbiteriana Mackenzie.
 
-## 📸 Demonstração
-| Solo Úmido | Solo Seco |
-|------------|-----------|
-| ![Solo Úmido](imagens/solo_seco.jpg) | ![Solo Seco](imagens/solo_umido) |
-
 ## 🔌 Circuito
 ```plaintext
 Sensor de Umidade → GPIO34
