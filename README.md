@@ -7,7 +7,7 @@ Projeto de IoT para controle de irrigação baseado na umidade do solo, desenvol
 ## 📸 Demonstração
 | Solo Úmido | Solo Seco |
 |------------|-----------|
-| ![Solo Úmido](imagens/imagem_sol_úmido.jpg) | ![Solo Seco](imagens/imagem_Solo_Seco.jpg) |
+| ![Solo Úmido](imagens/solo_seco.jpg) | ![Solo Seco](imagens/solo_umido) |
 
 ## 🔌 Circuito
 ```plaintext
