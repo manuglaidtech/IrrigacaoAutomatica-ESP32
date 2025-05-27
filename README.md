@@ -66,7 +66,7 @@ Desenvolver uma solução de irrigação inteligente que:
 ![Solo seco](Imagens/solo_seco.jpg)
 
 ### Solo Úmido
-![Solo úmido](Imagens/solo_umido)
+![Solo úmido](../Imagens/solo_umido.jpg)
 
 ---
 
