@@ -57,9 +57,9 @@ Desenvolver uma solução de irrigação inteligente que:
 ## 🔄 Diagrama esquemático
 
 ! [Diagrama](Imagens/diagrama_circuito.png)
+![diagrama_circuito](https://github.com/user-attachments/assets/a2023098-ab6f-41ab-b8ba-8ae358f63c5b)
 
 ---
-
 ## 📸 Imagens da Simulação
 
 ### Solo Seco
@@ -68,7 +68,7 @@ Desenvolver uma solução de irrigação inteligente que:
 
 ## ▶️ Vídeo Demonstração
 
-[🔗 Clique aqui para assistir no YouTube](https://www.youtube.com/SEU-LINK-AQUI)
+[🔗 Clique aqui para assistir no YouTube](https://youtu.be/151Dj76_6qI)
 
 ---
 
