@@ -32,7 +32,7 @@ Desenvolver uma solução de irrigação inteligente que:
 
 - **ESP32** (Wi-Fi + Bluetooth)
 - **Wokwi** (simulação virtual)
-- **Fritzing** (modelagem visual do circuito)
+- **Lucidchart** (modelagem visual do circuito)
 - **Arduino IDE** (linguagem C++)
 - **Bibliotecas**: `WiFi.h`, `PubSubClient.h`
 
@@ -66,7 +66,7 @@ Desenvolver uma solução de irrigação inteligente que:
 ![Solo seco](Imagens/solo_seco.jpg)
 
 ### Solo Úmido
-![Solo úmido](Imagens/solo_umido.jpg)
+![Solo úmido](Imagens/solo_umido)
 
 ---
 
