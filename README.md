@@ -57,7 +57,8 @@ Desenvolver uma solução de irrigação inteligente que:
 ## 🔄 Diagrama esquemático
 
 ! [Diagrama](Imagens/diagrama_circuito.png)
-![diagrama_circuito](https://github.com/user-attachments/assets/a2023098-ab6f-41ab-b8ba-8ae358f63c5b)
+
+![diagrama_circuito](https://github.com/user-attachments/assets/62bf5a24-d43f-4314-b07c-0657134fce52)
 
 ---
 ## 📸 Imagens da Simulação
