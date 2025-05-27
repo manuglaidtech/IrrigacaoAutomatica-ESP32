@@ -1,8 +1,8 @@
-# 🌱 Sistema Inteligente de Irrigação com ESP32 e MQTT
+# Sistema Inteligente de Irrigação com ESP32 e MQTT
 
 Este projeto propõe um sistema de irrigação automatizado e sustentável que utiliza a plataforma ESP32, sensores de umidade do solo e comunicação via protocolo MQTT. A proposta visa combater o desperdício de água na agricultura, alinhando-se ao Objetivo de Desenvolvimento Sustentável 6 (ODS 6) da ONU.
 
-## 🎯 Objetivo
+## Objetivo
 
 Desenvolver uma solução de irrigação inteligente que:
 
@@ -54,9 +54,9 @@ Desenvolver uma solução de irrigação inteligente que:
 
 ---
 
-## 🔄 Fluxograma
+## 🔄 Diagrama esquemático
 
-> *(Insira a imagem do fluxograma aqui quando disponível)*
+! [Diagrama](Imagens/diagrama_circuito.png)
 
 ---
 
