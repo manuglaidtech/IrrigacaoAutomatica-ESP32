@@ -12,6 +12,10 @@ Desenvolver uma solução de irrigação inteligente que:
 - Seja validada por meio de simulação no ambiente Wokwi.
 
 ---
+## ▶️ Vídeo Simulação Wokwi
+
+[🔗 Clique aqui para simular no Wokwi(https://wokwi.com/projects/431979887661363201).
+---
 
 ## 🧰 Componentes Utilizados
 
@@ -67,14 +71,9 @@ Desenvolver uma solução de irrigação inteligente que:
 ![Solo seco](Imagens/solo_seco.jpg)
 ---
 
-## ▶️ Vídeo Demonstração - Simulação Wokwi
+## ▶️ Vídeo Demonstração
 
 [🔗 Clique aqui para assistir no YouTube](https://studio.youtube.com/video/yaLfNWBHTl4/edit)
----
-
-## ▶️ Vídeo Simulação Wokwi
-
-[🔗 Clique aqui para simular no Wokwi(https://wokwi.com/projects/431979887661363201).
 ---
 
 ## 🌐 Referências
