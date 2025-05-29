@@ -70,6 +70,10 @@ Desenvolver uma solução de irrigação inteligente que:
 ## ▶️ Vídeo Demonstração - Simulação Wokwi
 
 [🔗 Clique aqui para assistir no YouTube](https://studio.youtube.com/video/yaLfNWBHTl4/edit)
+---
+
+## ▶️ Vídeo Simulação Wokwi
+
 [🔗 Clique aqui para simular no Wokwi(https://wokwi.com/projects/431979887661363201).
 ---
 
