@@ -62,8 +62,6 @@ Desenvolver uma solução de irrigação inteligente que:
 
 ! [Diagrama](Imagens/diagrama_circuito.png)
 
-![diagrama_circuito](https://github.com/user-attachments/assets/62bf5a24-d43f-4314-b07c-0657134fce52)
-
 ---
 ## 📸 Imagens da Simulação
 
@@ -73,7 +71,10 @@ Desenvolver uma solução de irrigação inteligente que:
 
 ## ▶️ Vídeo Demonstração
 
-[🔗 Clique aqui para assistir no YouTube](https://youtu.be/yaLfNWBHTl4)
+[🔗 Clique aqui para assistir no YouTube](https://youtu.be/yaLfNWBHTl4) (https://youtu.be/BnljT1fDyqk).
+---
+## ▶️ Vídeo Demonstração MQTT
+[🔗 Clique aqui para assistir no YouTube](https://youtu.be/BnljT1fDyqk).
 ---
 
 ## 🌐 Referências
