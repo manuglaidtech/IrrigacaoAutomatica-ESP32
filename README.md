@@ -67,10 +67,10 @@ Desenvolver uma solução de irrigação inteligente que:
 ![Solo seco](Imagens/solo_seco.jpg)
 ---
 
-## ▶️ Vídeo Demonstração
+## ▶️ Vídeo Demonstração - Simulação Wokwi
 
 [🔗 Clique aqui para assistir no YouTube](https://studio.youtube.com/video/yaLfNWBHTl4/edit)
-
+[🔗 Clique aqui para simular no Wokwi(https://wokwi.com/projects/431979887661363201).
 ---
 
 ## 🌐 Referências
