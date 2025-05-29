@@ -6,46 +6,42 @@
 #include <WiFi.h>
 #include <PubSubClient.h>
 
-// Pinos definidos conforme sua ligação
-#define PIN_POTENCIOMETRO 32  // Potenciômetro
-#define PIN_RELE 26           // Módulo relé
-#define PIN_LED 25            // LED indicador
-#define PIN_BUZZER 27         // Buzzer
-#define PIN_SENSORDI 34       // Sensor de umidade (analogico)
-
-// Limite de umidade abaixo do qual irrigar (ajuste conforme necessário)
+// Configurações de hardware
+#define PIN_POTENCIOMETRO 32
+#define PIN_RELE 26
+#define PIN_LED 25
+#define PIN_BUZZER 27
+#define PIN_SENSORDI 34
 #define LIMIAR_UMIDADE 2000
 
-// Configurações WiFi e MQTT
+// Configurações de rede
 const char* ssid = "Wokwi-GUEST";
 const char* password = "";
-const char* mqtt_server = "broker.hivemq.com";
+const char* mqtt_server = "broker.hivemq.com"; // Broker público
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 
-// Variável para armazenar o valor do sensor
+// Variáveis globais
 int umidade;
+unsigned long lastMsgTime = 0;
 
 void setup() {
   Serial.begin(115200);
-
+  
   // Configuração dos pinos
   pinMode(PIN_RELE, OUTPUT);
   pinMode(PIN_LED, OUTPUT);
   pinMode(PIN_BUZZER, OUTPUT);
   pinMode(PIN_SENSORDI, INPUT);
-
-  // Inicializa os dispositivos
+  
   digitalWrite(PIN_RELE, LOW);
   digitalWrite(PIN_LED, LOW);
   noTone(PIN_BUZZER);
 
-  // Conecta ao WiFi
   conectarWiFi();
-
-  // Configura o MQTT
-  client.setServer(mqtt_server, 1883);
+  client.setServer(mqtt_server, 1883); // Porta TCP padrão MQTT
+  client.setCallback(callback);
 }
 
 void loop() {
@@ -54,53 +50,90 @@ void loop() {
   }
   client.loop();
 
-  // Leitura do sensor de umidade (potenciômetro simulado)
-  umidade = analogRead(PIN_SENSORDI);
-  Serial.print("Umidade do solo: ");
-  Serial.println(umidade);
+  // Publica a cada 2 segundos
+  if (millis() - lastMsgTime > 2000) {
+    lastMsgTime = millis();
+    
+    umidade = analogRead(PIN_SENSORDI);
+    Serial.print("Umidade: ");
+    Serial.println(umidade);
 
-  if (umidade < LIMIAR_UMIDADE) {
-    // Solo seco, aciona irrigação
-    Serial.println("⚠️ Umidade baixa! Acionando irrigação.");
-    digitalWrite(PIN_RELE, HIGH);
-    digitalWrite(PIN_LED, HIGH);
-    tone(PIN_BUZZER, 1000); // tom de 1kHz
-  } else {
-    // Solo úmido, desliga irrigação
-    Serial.println("✅ Umidade suficiente. Irrigação desativada.");
-    digitalWrite(PIN_RELE, LOW);
-    digitalWrite(PIN_LED, LOW);
-    noTone(PIN_BUZZER);
+    // Controle da irrigação
+    if (umidade < LIMIAR_UMIDADE) {
+      ativarIrrigacao();
+    } else {
+      desativarIrrigacao();
+    }
+
+    // Publica no MQTT (formato JSON)
+    char msg[50];
+    snprintf(msg, 50, "{\"umidade\":%d,\"status\":\"%s\"}", 
+             umidade, 
+             (umidade < LIMIAR_UMIDADE) ? "IRRIGANDO" : "DESLIGADO");
+             
+    if (client.publish("emanuelle/umidade", msg)) {
+      Serial.println("Mensagem publicada!");
+    } else {
+      Serial.println("Falha ao publicar");
+    }
   }
+}
 
-  // Publica no MQTT
-  char msg[50];
-  snprintf(msg, 50, "Umidade: %d", umidade);
-  client.publish("irrigacao/umidade", msg);
-
-  delay(2000);
+// Função chamada quando chega mensagem MQTT
+void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.print("Mensagem recebida [");
+  Serial.print(topic);
+  Serial.print("]: ");
+  
+  for (int i = 0; i < length; i++) {
+    Serial.print((char)payload[i]);
+  }
+  Serial.println();
 }
 
 void conectarWiFi() {
-  Serial.print("Conectando ao WiFi");
+  Serial.print("Conectando ao WiFi...");
   WiFi.begin(ssid, password);
+  
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
-  Serial.println(" Conectado!");
+  
+  Serial.println("\nConectado!");
+  Serial.print("IP: ");
+  Serial.println(WiFi.localIP());
 }
 
 void reconnect() {
   while (!client.connected()) {
     Serial.print("Conectando ao MQTT...");
-    if (client.connect("ESP32Client")) {
-      Serial.println(" Conectado!");
+    
+    // Gera um ClientID único
+    String clientId = "ESP32Client-" + String(random(0xffff), HEX);
+    
+    if (client.connect(clientId.c_str())) {
+      Serial.println("Conectado!");
+      client.subscribe("emanuelle/controle"); // Tópico para comandos
     } else {
-      Serial.print(" falhou, rc=");
+      Serial.print("Falha, rc=");
       Serial.print(client.state());
-      Serial.println(" Tentando novamente em 5 segundos...");
+      Serial.println(" Tentando novamente em 5s...");
       delay(5000);
     }
   }
+}
+
+void ativarIrrigacao() {
+  digitalWrite(PIN_RELE, HIGH);
+  digitalWrite(PIN_LED, HIGH);
+  tone(PIN_BUZZER, 1000, 200); // Bip curto
+  Serial.println("Irrigação ATIVADA");
+}
+
+void desativarIrrigacao() {
+  digitalWrite(PIN_RELE, LOW);
+  digitalWrite(PIN_LED, LOW);
+  noTone(PIN_BUZZER);
+  Serial.println("Irrigação DESATIVADA");
 }
