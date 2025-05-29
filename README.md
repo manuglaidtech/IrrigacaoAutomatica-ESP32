@@ -71,7 +71,7 @@ Desenvolver uma solução de irrigação inteligente que:
 
 ## ▶️ Vídeo Demonstração
 
-[🔗 Clique aqui para assistir no YouTube](https://youtu.be/yaLfNWBHTl4) (https://youtu.be/BnljT1fDyqk).
+[🔗 Clique aqui para assistir no YouTube](https://youtu.be/yaLfNWBHTl4) 
 ---
 ## ▶️ Vídeo Demonstração MQTT
 [🔗 Clique aqui para assistir no YouTube](https://youtu.be/BnljT1fDyqk).
