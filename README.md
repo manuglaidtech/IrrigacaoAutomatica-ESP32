@@ -69,7 +69,7 @@ Desenvolver uma solução de irrigação inteligente que:
 
 ## ▶️ Vídeo Demonstração
 
-[🔗 Clique aqui para assistir no YouTube](https://youtu.be/151Dj76_6qI)
+[🔗 Clique aqui para assistir no YouTube](https://studio.youtube.com/video/yaLfNWBHTl4/edit)
 
 ---
 
